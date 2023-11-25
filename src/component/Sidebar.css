@@ -1,0 +1,47 @@
+.sidebar{
+    margin:0 auto; /* this will center the page */
+    max-width: 1060px; /*  use your width here */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    border-bottom: 2px solid var(--grayish-blue);
+}
+.logo{
+    font-size: 18px;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+.nav-items{
+    width: 450px;
+}
+.nav-list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-list li{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    cursor: pointer;
+}
+
+.nav-list li:hover{
+    border-bottom: 2px solid var(--orange);
+    color: var(--black);
+    font-weight: 600;
+}
+
+.cart-profile-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100px;
+}
+.btn{
+    background: none;
+}
+.avatar-img{
+    width: 45px;
+}

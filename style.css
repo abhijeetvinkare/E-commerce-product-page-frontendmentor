@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap');
+
+/*=============== BASE ===============*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+button{
+    cursor: pointer;
+}
+button,
+input{
+    border: none;
+    outline: none;
+}
+
+
+/* Colors */
+:root {
+  --orange: hsl(26, 100%, 55%);
+  --pale-orange: hsl(25, 100%, 94%);
+  --very-dark-blue: hsl(220, 13%, 13%);
+  --dark-grayish-blue: hsl(219, 9%, 45%);
+  --grayish-blue: hsl(220, 14%, 75%);
+  --light-grayish-blue: hsl(223, 64%, 98%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsla(0, 0%, 0%, 0.75); /* 75% opacity */
+
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Typography */
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 16px;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--very-dark-blue);
+}
+
+/* Paragraphs */
+p {
+  color: var(--grayish-blue);
+}
+
+/* Links */
+a {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+/* Example for a lightbox background */
+.lightbox {
+  background-color: var(--black);
+  opacity: 0.75;
+}
+
+/* Add more styles using the defined variables as needed */
