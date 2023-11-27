@@ -45,8 +45,75 @@
 .avatar-img{
     width: 45px;
 }
+.hamburger-icon{
+    display: none;
+}
 
 
 @media screen and (max-width: 750px) {
+    .nav-items-mobile{
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        background: var(--pale-orange);
+        transition: .4s ease-out;
+    }
+    .nav-list{
+        flex-direction: column;
+        align-items: start;
+        margin-left: 22px;
+        margin-top: 70px;
+        font-weight: 800;
+    }
+    .nav-list li{
+        padding-bottom: 10px;
+    }
+    .hamburger-icon{
+        display: block;
+        margin-top: -3px;
+        cursor: pointer;
+        color: var(--black);
+        margin-left: 5px;
+        z-index: 999;
+    }
+    .nav-items-mobile-show{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        background: var(--pale-orange);
+        transition: .4s ease-in;
+    }
+    .avatar-img{
+        width: 40px;
+    }
+}
 
+
+@media screen and (max-width: 330px) {
+    .logo h1{
+        font-size: 25px;
+    }
+    .avatar-img{
+        width: 30px;
+    }
+    .icons{
+        width: 20px;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .logo{
+        margin-left: 10px;
+    }
+    .cart-profile-div{
+        margin-right: 10px;
+    }
 }
