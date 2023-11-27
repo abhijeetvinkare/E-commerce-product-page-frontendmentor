@@ -8,10 +8,12 @@ import image1thumb from "../assets/images/image-product-1-thumbnail.jpg"
 import image2thumb from "../assets/images/image-product-2-thumbnail.jpg"
 import image3thumb from "../assets/images/image-product-3-thumbnail.jpg"
 import image4thumb from "../assets/images/image-product-4-thumbnail.jpg"
+import { IoCartOutline } from "react-icons/io5";
 
 function ProductPage() {
 
   const [image, setImage] = useState(image1full);
+  const [ordercount, setOrdercount] = useState(0);
   
 
   // useEffect(() => {
@@ -49,6 +51,21 @@ function ProductPage() {
     });
   }, []);
 
+
+  const handleIncrement = () => {
+    // Check if the count is already at the minimum value (0)
+    if (ordercount >= 0) {
+      setOrdercount(ordercount + 1);
+    }
+  };
+
+  const handleDecrement = () => {
+    // Check if the count is greater than 0 before decrementing
+    if (ordercount > 0) {
+      setOrdercount(ordercount - 1);
+    }
+  };
+
   return (
     <div className='product-container'>
         <div className="image-div product-container-child">
@@ -76,6 +93,15 @@ function ProductPage() {
         </div>
 
           <span className='price-after-discount'>$250.00</span>
+
+        <div className="btn-div">
+          <div className="btn-add-minus-div">
+            <button className='btn-add-minus' onClick={handleIncrement}>+</button>
+            <span className='order-count'>{ordercount}</span>
+            <button className='btn-add-minus' onClick={handleDecrement}>-</button>
+          </div>
+          <button className='add-to-cart-btn'> <span><IoCartOutline size={20}/></span>Add to cart</button>
+        </div>  
         </div>
     </div>
   )
