@@ -19,6 +19,11 @@
 .image-div-full-image img{
     width:360px;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.image-div-full-image img:hover{
+    border: 2px solid var(--white);
 }
 
 .image-div-thumbnail{
@@ -180,5 +185,84 @@
     }
     .image-div{
         margin-right: 5px;
+    }
+  }
+
+  @media screen and (min-width: 440px) {
+
+    .view-full-img-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .full-img-view-main-div{
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+    }
+    .full-image{
+        width: 350px;
+        border-radius: 10px;
+    }
+    .close-icon-full-img{
+        color: var(--white);
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+        border-radius: 50%;
+        align-self: flex-end;
+        margin-bottom: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+      .image-div-thumbnail-overlay{
+        display: flex;
+        column-gap: 20px;
+      }
+      .image-div-thumbnail-overlay img{
+        margin-top: 20px;
+        width: 3.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    
+      .image-div-thumbnail-overlay img:hover{
+        border: 2px solid var(--pale-orange);
+        opacity: 0.4;
+      }
+    
+      .overlay-nxt-pre-btn-div{
+        display: flex;
+        justify-content: space-between;
+        width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    
+      .arrow-btn{
+        background: var(--white);
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+  }
+
+  @media screen and (max-width: 440px) {
+    .view-full-img-container{
+        display: none;
     }
   }
