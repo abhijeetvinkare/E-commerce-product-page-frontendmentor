@@ -79,7 +79,7 @@
     font-weight: 700;
 }
 
-.price-after-discount{
+.actual-price{
     color: var(--grayish-blue);
     font-weight: 500;
     text-decoration: line-through;

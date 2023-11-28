@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
+import { ProductData } from "../data/ProductData";
 
 function InfoComponent() {
   const [ordercount, setOrdercount] = useState(1);
@@ -18,21 +19,22 @@ function InfoComponent() {
     }
   };
 
+  function handleAddtoCart(e) {
+    e.preventDefault();
+    console.log(ordercount)
+  }
+
   return (
     <div className="info-div product-container-child">
-      <span className="brand-span">SNEAKER COMPANY</span>
-      <h1 className="product-name">Fall Limited Edition Sneakers</h1>
-      <p className="product-details">
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they'll withstand everything the
-        weather can offer.
-      </p>
+      <span className="brand-span">{ProductData.company}</span>
+      <h1 className="product-name">{ProductData.productName}</h1>
+      <p className="product-details">{ProductData.productDescription}</p>
       <div className="price-div">
-        <h1>$125.00</h1>
-        <span>50%</span>
+        <h1>${(ProductData.productPrice * (1 - ProductData.discountPercentage / 100)).toFixed(2)}</h1>
+        <span>{ProductData.discountPercentage}%</span>
       </div>
 
-      <span className="price-after-discount">$250.00</span>
+      <span className="actual-price">${ProductData.productPrice.toFixed(2)}</span>
 
       <div className="btn-div">
         <div className="btn-add-minus-div">
@@ -44,7 +46,7 @@ function InfoComponent() {
             -
           </button>
         </div>
-        <button className="add-to-cart-btn">
+        <button className="add-to-cart-btn" onClick={handleAddtoCart}>
           <span>
             <IoCartOutline size={20} />
           </span>
