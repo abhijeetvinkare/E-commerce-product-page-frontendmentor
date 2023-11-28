@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 
 function InfoComponent() {
-  const [ordercount, setOrdercount] = useState(0);
+  const [ordercount, setOrdercount] = useState(1);
 
   const handleIncrement = () => {
     // Check if the count is already at the minimum value (0)
-    if (ordercount >= 0) {
+    if (ordercount >= 1) {
       setOrdercount(ordercount + 1);
     }
   };
 
   const handleDecrement = () => {
     // Check if the count is greater than 0 before decrementing
-    if (ordercount > 0) {
+    if (ordercount > 1) {
       setOrdercount(ordercount - 1);
     }
   };
