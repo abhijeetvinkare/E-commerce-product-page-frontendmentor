@@ -127,7 +127,7 @@
     position: absolute;
     right: 8%;
     top: 80px;
-    width: 270px;
+    width: 280px;
     height: 180px;
     background: var(--white);
     border-radius: 5px;
@@ -197,21 +197,41 @@
 }
 
 .icon-cart-btn::before {
-    content: attr(data-count); /* Add the desired number */
-    display: block; /* Ensures the content is treated as a block element */
+    content: attr(data-count); 
+    display: block; 
     position: relative;
-    top: 12px; /* Adjust the vertical position as needed */
-    right: -15px; /* Adjust the horizontal position as needed */
-    background-color: var(--orange); /* Adjust the background color as needed */
-    color: white; /* Adjust the text color as needed */
-    border-radius: 50%; /* Optional: Create a circular background */
-    width: 20px; /* Adjust the width as needed */
-    height: 20px; /* Adjust the height as needed */
+    top: 12px; 
+    right: -15px; 
+    background-color: var(--orange); 
+    color: white;  
+    border-radius: 50%; 
+    width: 20px;
+    height: 20px; 
     text-align: center;
-    line-height: 20px; /* Aligns the text vertically within the circle */
+    line-height: 20px; 
 }
 .icon-cart-btn::after {
     content: '';
     display: block;
     margin-top: 15px;
 } 
+
+
+@media screen and (max-width: 330px) {
+    .cart-container{
+        right: 3%;
+        padding: 10px;
+    }
+}
+
+
+@media screen and (max-width: 310px) {
+    .cart-container{
+        right: 2%;
+        width: 250px;
+        height: 220px;
+    }
+    .total-price-span{
+        margin-left: -3px;
+    }
+}

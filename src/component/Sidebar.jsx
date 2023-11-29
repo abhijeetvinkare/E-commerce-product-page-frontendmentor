@@ -8,11 +8,14 @@ import scrollLock from "scroll-lock";
 import thumbnail from "../assets/images/image-product-1-thumbnail.jpg";
 import { MdDelete } from "react-icons/md";
 import { ProductData } from "../data/ProductData";
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../store/CounterSlice';
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItemCount, setCartItemCount] = useState(1);
+  const count = useSelector((state) => state.order.count);
+  const dispatch = useDispatch();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -39,7 +42,7 @@ function Sidebar() {
 
   function handleRemoveItemFromCart(e) {
     e.preventDefault();
-    setCartItemCount(0);
+    dispatch(addToCart(0));
   }
 
   return (
@@ -61,10 +64,12 @@ function Sidebar() {
           <li>Contact</li>
         </ul>
       </div>
+
+
       <div className="cart-profile-div">
         <button
-          className={`btn ${cartItemCount <= 0 ? "" : "icon-cart-btn"}`}
-          data-count={cartItemCount}
+          className={`btn ${count <= 0 ? "" : "icon-cart-btn"}`}
+          data-count={count}
           onClick={handleCart}
         >
           <IoCartOutline size={28} className="icons" />
@@ -80,7 +85,7 @@ function Sidebar() {
             <h4>Cart</h4>
           </div>
           <div className="checkout-div">
-            {cartItemCount > 0 ? (
+            {count > 0 ? (
               <div className="checkout-product-div">
                 <div className="checkout-price-div">
                   <img
@@ -91,9 +96,9 @@ function Sidebar() {
                   <div className="checkout-produt-title-div">
                     <span>{ProductData.productName}</span>
                     <span>
-                      ${(ProductData.productPrice * (1 - ProductData.discountPercentage / 100)).toFixed(2)} × {cartItemCount} &nbsp;
-                      <span style={{ fontWeight: 700, color: "black" }}>
-                      ${(ProductData.productPrice * (1 - ProductData.discountPercentage / 100) * cartItemCount).toFixed(2)}
+                      ${(ProductData.productPrice * (1 - ProductData.discountPercentage / 100)).toFixed(2)} × {count} &nbsp;
+                      <span style={{ fontWeight: 700, color: "black" }} className="total-price-span">
+                      ${(ProductData.productPrice * (1 - ProductData.discountPercentage / 100) * count).toFixed(2)}
                       </span>
                     </span>
                   </div>

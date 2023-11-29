@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { ProductData } from "../data/ProductData";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/CounterSlice";
 
 function InfoComponent() {
   const [ordercount, setOrdercount] = useState(1);
+  const dispatch = useDispatch();
 
   const handleIncrement = () => {
     // Check if the count is already at the minimum value (0)
@@ -21,7 +24,8 @@ function InfoComponent() {
 
   function handleAddtoCart(e) {
     e.preventDefault();
-    console.log(ordercount)
+    console.log(ordercount);
+    dispatch(addToCart(ordercount));
   }
 
   return (
@@ -30,21 +34,25 @@ function InfoComponent() {
       <h1 className="product-name">{ProductData.productName}</h1>
       <p className="product-details">{ProductData.productDescription}</p>
       <div className="price-div">
-        <h1>${(ProductData.productPrice * (1 - ProductData.discountPercentage / 100)).toFixed(2)}</h1>
+        <h1>
+          $
+          {(
+            ProductData.productPrice *
+            (1 - ProductData.discountPercentage / 100)
+          ).toFixed(2)}
+        </h1>
         <span>{ProductData.discountPercentage}%</span>
       </div>
 
-      <span className="actual-price">${ProductData.productPrice.toFixed(2)}</span>
+      <span className="actual-price">
+        ${ProductData.productPrice.toFixed(2)}
+      </span>
 
       <div className="btn-div">
         <div className="btn-add-minus-div">
-          <button className="btn-add-minus" onClick={handleIncrement}>
-            +
-          </button>
+          <button className="btn-add-minus" onClick={handleDecrement}>-</button>
           <span className="order-count">{ordercount}</span>
-          <button className="btn-add-minus" onClick={handleDecrement}>
-            -
-          </button>
+          <button className="btn-add-minus" onClick={handleIncrement}>+</button>
         </div>
         <button className="add-to-cart-btn" onClick={handleAddtoCart}>
           <span>
