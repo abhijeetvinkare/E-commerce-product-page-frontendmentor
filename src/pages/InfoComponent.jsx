@@ -3,6 +3,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { ProductData } from "../data/ProductData";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/CounterSlice";
+import toast, { Toaster } from 'react-hot-toast';
 
 function InfoComponent() {
   const [ordercount, setOrdercount] = useState(1);
@@ -26,6 +27,17 @@ function InfoComponent() {
     e.preventDefault();
     console.log(ordercount);
     dispatch(addToCart(ordercount));
+
+    toast(' Item added to cart!', {
+      duration: 2000,
+      position: 'bottom-center',
+      icon:'✅',
+      style: {
+        background: '#363636',
+        color: '#fff',
+        marginBottom:"4px"
+      },
+    });
   }
 
   return (
@@ -61,6 +73,7 @@ function InfoComponent() {
           Add to cart
         </button>
       </div>
+      <Toaster />
     </div>
   );
 }

@@ -11,7 +11,6 @@ import image2thumb from "../assets/images/image-product-2-thumbnail.jpg";
 import image3thumb from "../assets/images/image-product-3-thumbnail.jpg";
 import image4thumb from "../assets/images/image-product-4-thumbnail.jpg";
 
-
 const imageThumbs = [image1thumb, image2thumb, image3thumb, image4thumb];
 const fullImages = [image1full, image2full, image3full, image4full];
 
